@@ -104,12 +104,34 @@ function blockUpcummies() {
 
 
         case "/results":
-            // Block video stats on search results      
-            var results = document.getElementsByTagName("ytd-video-renderer");
-            for (var i = 0; i < results.length; i++) {
-                var metaElements = results[i].getElementsByTagName("ytd-video-meta-block");
+            // TODO: Only works with the top results because there are more results loaded later on.. 
+            // Block video stats 
+            var videoResults = document.getElementsByTagName("ytd-video-renderer");
+            for (var i = 0; i < videoResults.length; i++) {
+                var metaElements = videoResults[i].getElementsByTagName("ytd-video-meta-block");
                 for (var j = 0; j < metaElements.length; j++) {
-                    removeElement(metaElements[j]);
+                    var divs = metaElements[j].getElementsByTagName("div");
+                    for (var k = 0; k < divs.length; k++)
+                    {
+                        if (divs[k].getAttribute("id") == "metadata-line") {
+                            removeElement(divs[k].childNodes[0]);
+                        }
+                    }
+                }
+            }
+            // Block channel stats
+            var channelResults = document.getElementsByTagName("ytd-channel-renderer");
+            for (var i = 0; i < channelResults.length; i++) {
+                var spans = channelResults[i].getElementsByTagName("span");
+                for (var j = 0; j < spans.length; j++) {
+                    if (spans[j].getAttribute("id") == "subscribers")
+                    {
+                        removeElement(spans[j]);
+                    }
+                    if (spans[j].getAttribute("id") == "dot")
+                    {
+                        removeElement(spans[j]);
+                    }
                 }
             }
             break;
@@ -123,11 +145,18 @@ function blockUpcummies() {
 // Blocks notifications: the notification panel and the bell next to the sub button
 function blockNotifications() {
     // Blocks the notification panel button on every page
-    var notificationElements = document.getElementsByTagName("ytd-notification-topbar-button-renderer")
+    var notificationElements = document.getElementsByTagName("ytd-notification-topbar-button-renderer");
     for (i = 0; i < notificationElements.length; i++) {
         removeElement(notificationElements[i]);
     }
-    // TODO: Block notification bell
+    // Block notification bell
+    var iconButtons = document.getElementsByTagName("yt-icon-button");
+    for (i = 0; i < iconButtons.length; i++) {
+        if (iconButtons[i].classList.contains("ytd-subscription-notification-toggle-button-renderer"))
+        {
+            removeElement(iconButtons[i]);
+        }
+    }    
 }
 
 function showPage() {
