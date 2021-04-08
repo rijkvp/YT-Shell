@@ -40,19 +40,25 @@ function removeElement(element) {
 }
 
 // Block recommendations
-function blockRecommendations() {
+function blockRecommendations(settings) {
     var spans = document.querySelectorAll('[page-subtype]');
     for (i = 0; i < spans.length; i++) {
         var pageSubtype = spans[i].getAttribute('page-subtype');
         switch (pageSubtype) {
             case "home":
-                disableElement(spans[i], "RECOMMENDATIONS BLOCKED", 1.7);
+                if (settings.blockHomepage) {
+                    disableElement(spans[i], "HOMEPAGE BLOCKED", 1.7);
+                }
                 break;
             case "trending":
-                disableElement(spans[i], "TRENDING BLOCKED", 2.0);
+                if (settings.blockExplore) { // TODO: Trending page is part of explore
+                    disableElement(spans[i], "TRENDING BLOCKED", 2.0);
+                }
                 break;
             case "subscriptions":
-                disableElement(spans[i], "SUBCRIPTIONS BLOCKED", 2.0);
+                if (settings.blockSubscriptions) {
+                    disableElement(spans[i], "SUBCRIPTIONS BLOCKED", 2.0);
+                }
                 break;
         }
     }
@@ -60,22 +66,26 @@ function blockRecommendations() {
     switch (window.location.pathname) {
         case "/watch":
             // Block 'related' videos recommendations
-            var related = document.getElementById("related");
-            if (related != null) {
-                disableElement(related, "RECOMMENDATIONS BLOCKED", 1.6);
+            if (settings.blockRelated) {
+                var related = document.getElementById("related");
+                if (related != null) {
+                    disableElement(related, "RECOMMENDATIONS BLOCKED", 1.6);
+                }
             }
 
-            // Remove recommendations at the endscreen
-            var endScreens = document.getElementsByClassName("html5-endscreen");
-            for (i = 0; i < endScreens.length; i++) {
-                disableElement(endScreens[i], "Great! At least you wachted untill the end!<br>No end screen with recommendations here :(<br>Are you sure you want to continue wachting instead of doing somthing productive?", 1.5);
+            // Block recommendations at the endscreen
+            if (settings.blockEndscreen) {
+                var endScreens = document.getElementsByClassName("html5-endscreen");
+                for (i = 0; i < endScreens.length; i++) {
+                    removeElement(endScreens[i]);
+                }
             }
             break;
     }
 }
 
 // Blocks upcummies: likes, views, subs
-function blockUpcummies() {
+function blockUpcummies(settings) {
     switch (window.location.pathname) {
         case "/watch":
             // Hide Like/Dislike count
@@ -111,8 +121,7 @@ function blockUpcummies() {
                 var metaElements = videoResults[i].getElementsByTagName("ytd-video-meta-block");
                 for (var j = 0; j < metaElements.length; j++) {
                     var divs = metaElements[j].getElementsByTagName("div");
-                    for (var k = 0; k < divs.length; k++)
-                    {
+                    for (var k = 0; k < divs.length; k++) {
                         if (divs[k].getAttribute("id") == "metadata-line") {
                             removeElement(divs[k].childNodes[0]);
                         }
@@ -124,12 +133,10 @@ function blockUpcummies() {
             for (var i = 0; i < channelResults.length; i++) {
                 var spans = channelResults[i].getElementsByTagName("span");
                 for (var j = 0; j < spans.length; j++) {
-                    if (spans[j].getAttribute("id") == "subscribers")
-                    {
+                    if (spans[j].getAttribute("id") == "subscribers") {
                         removeElement(spans[j]);
                     }
-                    if (spans[j].getAttribute("id") == "dot")
-                    {
+                    if (spans[j].getAttribute("id") == "dot") {
                         removeElement(spans[j]);
                     }
                 }
@@ -143,20 +150,23 @@ function blockUpcummies() {
 }
 
 // Blocks notifications: the notification panel and the bell next to the sub button
-function blockNotifications() {
+function blockNotifications(settings) {
     // Blocks the notification panel button on every page
-    var notificationElements = document.getElementsByTagName("ytd-notification-topbar-button-renderer");
-    for (i = 0; i < notificationElements.length; i++) {
-        removeElement(notificationElements[i]);
+    if (settings.blockNotifications) {
+        var notificationElements = document.getElementsByTagName("ytd-notification-topbar-button-renderer");
+        for (i = 0; i < notificationElements.length; i++) {
+            removeElement(notificationElements[i]);
+        }
     }
     // Block notification bell
-    var iconButtons = document.getElementsByTagName("yt-icon-button");
-    for (i = 0; i < iconButtons.length; i++) {
-        if (iconButtons[i].classList.contains("ytd-subscription-notification-toggle-button-renderer"))
-        {
-            removeElement(iconButtons[i]);
+    if (settings.blockNotificationBell) {
+        var iconButtons = document.getElementsByTagName("yt-icon-button");
+        for (i = 0; i < iconButtons.length; i++) {
+            if (iconButtons[i].classList.contains("ytd-subscription-notification-toggle-button-renderer")) {
+                removeElement(iconButtons[i]);
+            }
         }
-    }    
+    }
 }
 
 function showPage() {
@@ -165,23 +175,27 @@ function showPage() {
     }
 }
 
-function run() {
-    blockRecommendations();
-    blockUpcummies();
-    blockNotifications();
+function run(settings) {
+    if (window.location.hostname == "www.youtube.com") {
+        switch (window.location.pathname) {
+            case "/feed/explore":
+            case "/feed/trending":
+            case "/gaming":
+                if (settings.blockExplore) { // Block explore feeds like trending
+                    window.location.assign("https://www.youtube.com");
+                }
+                break;
+            default:
+                blockRecommendations(settings);
+                blockUpcummies(settings);
+                blockNotifications(settings);
 
-    showPage();
-}
-
-if (window.location.hostname == "www.youtube.com") {
-    switch (window.location.pathname) {
-        case "/feed/explore":
-        case "/feed/trending":
-        case "/gaming":
-            window.location.assign("https://www.youtube.com");
-            break;
-        default:
-            run();
-            break;
+                showPage();
+                break;
+        }
     }
 }
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+    run(message.settings);
+});
