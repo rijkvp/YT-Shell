@@ -4,16 +4,34 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <style>
     body {
-        padding: 7%;
         width: 300px;
+    }
+
+    .form-check-input:checked {
+        background-color: #ff3b3b;
+        border-color: #fd0d0d;
     }
 </style>
 
-<body>
-    <h1>YT-Shell <small class="text-muted">Settings</small></h1>
-    
+<body class="m-2">
+    <h1 class="text-center mb-1 mt-3"><span class="fw-bold">YT-Shell</span>
+        <small class="fw-normal text-muted">Settings</small>
+    </h1>
+
+    <div id="reload-div" class="text-center fst-italic invisible">
+        <a id="reload-button" href="#" class="link-dark fw-bold">Refresh</a> the page to apply the settings.
+    </div>
+
     <div class="container-fluid" id="settingsPanel"></div>
 
+    <footer class="container p-2 text-center">
+        <small class="text-muted">
+            YT-Shell &middot;
+            <a href="https://github.com/rijkvp" class="link-secondary">@rijkvp</a> &middot;
+            <a href="https://github.com/rijkvp/yt-shell" class="link-secondary">source</a> &middot;
+            <a href="https://github.com/rijkvp/yt-shell/issues/new" class="link-secondary">submit issue</a>
+        </small>
+    </footer>
     <!-- Settings JS -->
     <script src="settings.js"></script>
 </body>

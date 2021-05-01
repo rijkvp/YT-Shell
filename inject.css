@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+/* Hides everything when loading and executing scripts */
+body {
+	display: none;
+}
+
+.block-message {
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 40px; 
+	font-weight: bold; 
+	border-radius: 6px;
+}
+
+.block-message > h1 {
+	font-weight: bold; 
+	font-size: 3rem;
+}
+
+.block-message > p {
+	font-weight: normal; 
+	font-size: 1.2rem;
+	margin: 4px, 0px;
+}
+
+#yt-shell-audience-size {
+	color: #aaa;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+
+
+/* Likes/dislikes */
+#top-level-buttons:nth-child(1) > ytd-toggle-button-renderer  #text,
+#top-level-buttons:nth-child(2) > ytd-toggle-button-renderer  #text,
+#sentiment
+{
+	display: none !important;
+}
+
+/* Subscriber and view count */
+#subscriber-count,
+#owner-sub-count,
+#subscribers,
+ytd-video-view-count-renderer > span.view-count.style-scope.ytd-video-view-count-renderer,
+#dot,
+#metadata-line > span:nth-child(1) {
+	display: none !important;
+}
+
+/* Thumbnails */
+ytd-thumbnail {
+	display: none !important;
+}
+
+/* Profile pictures/avatars */
+#avatar-section,
+yt-img-shadow#avatar,
+tp-yt-paper-item > yt-img-shadow
+#channel-info > yt-img-shadow
+{
+	display: none !important;
+}
