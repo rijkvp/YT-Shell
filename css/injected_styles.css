@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+.block-message {
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 40px; 
+	font-weight: bold; 
+	border-radius: 6px;
+}
+
+.block-message > h1 {
+	font-weight: bold; 
+	font-size: 3rem;
+}
+
+.block-message > p {
+	font-weight: normal; 
+	font-size: 1.2rem;
+	margin: 4px, 0px;
+}
+
+#yt-shell-audience-size {
+	color: #aaa;
+	font-size: 1.4rem;
+	font-weight: 400;
+}

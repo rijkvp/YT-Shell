@@ -2,34 +2,21 @@
   "manifest_version": 3,
   "name": "YT-Shell",
   "description": "YT-Shell is a browser extension which lets you stay focused while using YouTube. Block recommendations, upcummies and more!",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "permissions": [
     "tabs",
     "storage",
-    "contextMenus"
+    "contextMenus",
+    "scripting"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "*://www.youtube.com/*"
-      ],
-      "run_at": "document_start",
-      "css": [
-        "inject.css"
-      ]
-    },
-    {
-      "matches": [
-        "*://www.youtube.com/*"
-      ],
-      "run_at": "document_end",
-      "js": [
-        "inject.js"
-      ]
-    }
+  "host_permissions": [
+    "*://www.youtube.com/*"
   ],
+  "background": {
+    "service_worker": "main.js"
+  },
   "action": {
-    "default_popup": "settings_panel.html",
-    "default_title": "YT-Shell Settings"
+    "default_title": "YT-Shell Settings",
+    "default_popup": "settings_panel/popup.html"
   }
 }

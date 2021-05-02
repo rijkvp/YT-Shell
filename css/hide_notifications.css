@@ -1,0 +1,9 @@
+/* Panel button */
+ytd-notification-topbar-button-renderer {
+    display: none !important;
+}
+
+/* Notification bell */
+yt-icon-button.ytd-subscription-notification-toggle-button-renderer {
+    display: none !important;
+}

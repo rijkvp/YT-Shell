@@ -1,0 +1,4 @@
+/* Hides everything when loading and executing scripts */
+body {
+	display: none;
+}

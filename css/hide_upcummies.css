@@ -1,0 +1,17 @@
+/* Likes/dislikes */
+#top-level-buttons:nth-child(1) > ytd-toggle-button-renderer  #text,
+#top-level-buttons:nth-child(2) > ytd-toggle-button-renderer  #text,
+#sentiment
+{
+	display: none !important;
+}
+
+/* Subscriber and view count */
+#subscriber-count,
+#owner-sub-count,
+#subscribers,
+ytd-video-view-count-renderer > span.view-count.style-scope.ytd-video-view-count-renderer,
+#dot,
+#metadata-line > span:nth-child(1) {
+	display: none !important;
+}

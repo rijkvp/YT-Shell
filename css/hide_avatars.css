@@ -1,0 +1,8 @@
+/* Profile avatars */
+#avatar-section,
+yt-img-shadow#avatar,
+tp-yt-paper-item > yt-img-shadow
+#channel-info > yt-img-shadow
+{
+	display: none !important;
+}
