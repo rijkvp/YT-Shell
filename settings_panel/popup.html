@@ -9,8 +9,59 @@
         font-family: 'Roboto Condensed', sans-serif;
     }
 
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .fadeOut {
+        animation-name: fadeOut;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
+
+    #status {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        background-color: #FFF;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        width: 250px;
+        height: 30px;
+        margin-left: -125px;
+        opacity: 0;
+        font-size: 1.4rem;
+        color: #666;
+    }
+
     body {
         width: 300px;
+        overflow: hidden;
+    }
+
+    h2 {
+        font-size: .95rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #888;
+        text-align: center;
+        margin: .5rem 0;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .btn-primary {
+        background-color: #ff3b3b;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
     .form-check-input:checked {
@@ -19,22 +70,61 @@
     }
 </style>
 
-<body class="m-2">
-    <h1 class="text-center mb-1 mt-3"><span class="fw-bold">YT-Shell</span>
+<body class="m-1 mt-3">
+    <h1 class="text-center mb-1 mt-1"><span class="fw-bold">YT-Shell</span>
         <small class="fw-normal text-muted">&middot; Settings</small>
     </h1>
 
-    <div id="reload-div" class="text-center fst-italic invisible">
-        <a id="reload-button" href="#" class="link-dark fw-bold">Refresh</a> the page to apply the settings.
+    <div id="status" class="text-center">
+        Saved settings!
     </div>
 
     <div class="container-fluid" id="settingsPanel">
+        <h2>Distractions</h2>
         <div class="row my-2">
             <div class="col col-10">
-                <p class="fw-bold my-0">Test Setting</p>
-                <p><small class="text-muted">Desc here</small></p>
+                <p class="fw-bold my-0">Block recommendations</p>
+                <p><small class="text-muted">Blocks recommendations on the homepage and next to videos.</small></p>
             </div>
-            <div class="col col-1"><input id="${key}" type="checkbox" class="form-check-input"></div>
+            <div class="col col-1"><input id="block_recommendations" type="checkbox" class="form-check-input"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-10">
+                <p class="fw-bold my-0">Block explore feeds</p>
+                <p><small class="text-muted">Prevent yourself from browsing additional feeds like trending.</small></p>
+            </div>
+            <div class="col col-1"><input id="block_explore_feeds" type="checkbox" class="form-check-input"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-10">
+                <p class="fw-bold my-0">Hide notifications</p>
+                <p><small class="text-muted">Hides the notification panel and the notification-bell icons.</small></p>
+            </div>
+            <div class="col col-1"><input id="hide_notifications" type="checkbox" class="form-check-input"></div>
+        </div>
+        <h2>Upcummies</h2>
+        <div class="row my-2">
+            <div class="col col-10">
+                <p class="fw-bold my-0">Hide upcummies</p>
+                <p><small class="text-muted">Hides all upcummies form the website like/dislike and subscriber
+                        count.</small></p>
+            </div>
+            <div class="col col-1"><input id="hide_upcummies" type="checkbox" class="form-check-input"></div>
+        </div>
+        <h2>Other</h2>
+        <div class="row my-2">
+            <div class="col col-10">
+                <p class="fw-bold my-0">Hide thumbnails</p>
+                <p><small class="desc text-muted">Hides video thumbnails everywhere.</small></p>
+            </div>
+            <div class="col col-1"><input id="hide_thumbnails" type="checkbox" class="form-check-input"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-10">
+                <p class="fw-bold my-0">Hide avatars</p>
+                <p><small class="text-muted">WIP: Hides profile avatars from channels and users.</small></p>
+            </div>
+            <div class="col col-1"><input id="hide_avatars" type="checkbox" class="form-check-input"></div>
         </div>
     </div>
 

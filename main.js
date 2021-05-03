@@ -1,10 +1,8 @@
 const defaultSettings = {
-    
     block_recommendations: true,
     block_explore_feeds: true,
     hide_upcummies: true,
     hide_notifications: true,
-    
     hide_thumbnails: true,
     hide_avatars: true,
 }
@@ -34,18 +32,15 @@ function injectScripts(tabId) {
     insertCSS("loading.css", tabId);
 
     insertCSS("injected_styles.css", tabId);
-    
-    console.log("LOADING SETTINGS..");
+
     chrome.storage.sync.get(null, function (settingsData) {
         var settings;
         if (Object.entries(settingsData).length == 0) {
-            console.log("DEFAULT!");
             settings = defaultSettings;
         } else {
             settings = settingsData;
         }
-        console.log(settings);
-        
+
         insertJS("content.js", tabId);
         if (settings.block_recommendations) {
             insertJS("block_recommendations.js", tabId);
@@ -67,9 +62,19 @@ function injectScripts(tabId) {
         }
     });
 }
-
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (tab.url.includes("www.youtube.com")) {
         injectScripts(tabId);
     }
+});
+
+chrome.storage.onChanged.addListener(function (changes, namespace) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tab) {
+        currentTab = tab[0];
+        if (currentTab != null && currentTab.url.includes("www.youtube.com")) {
+            chrome.tabs.reload(tab.id, function() {
+                injectScripts(currentTab.id);
+            });
+        }
+    });
 });
