@@ -12,6 +12,7 @@
 #subscribers,
 ytd-video-view-count-renderer > span.view-count.style-scope.ytd-video-view-count-renderer,
 #dot,
-#metadata-line > span:nth-child(1) {
+#metadata-line > span:nth-child(1),
+#thumbnail-attribution {
 	display: none !important;
 }
