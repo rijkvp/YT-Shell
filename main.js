@@ -47,6 +47,7 @@ function injectScripts(tabId) {
         }
         if (settings.block_explore_feeds) {
             insertJS("redirect_feeds.js", tabId);
+            insertCSS("hide_explore_buttons.css", tabId);
         }
         if (settings.hide_upcummies) {
             insertCSS("hide_upcummies.css", tabId);
@@ -64,16 +65,16 @@ function injectScripts(tabId) {
 }
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (tab.url.includes("www.youtube.com")) {
-        injectScripts(tabId);
+          injectScripts(tabId);
     }
 });
 
 chrome.storage.onChanged.addListener(function (changes, namespace) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tab) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
         currentTab = tab[0];
         if (currentTab != null && currentTab.url.includes("www.youtube.com")) {
-            chrome.tabs.reload(tab.id, function() {
-                injectScripts(currentTab.id);
+            chrome.tabs.reload(tab.id, function () {
+                 injectScripts(currentTab.id);
             });
         }
     });

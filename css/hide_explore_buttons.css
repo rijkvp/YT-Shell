@@ -1,0 +1,4 @@
+/* Hide the explore tab in the side menu */
+#items > ytd-guide-entry-renderer:nth-child(2) {
+    display: none;
+}

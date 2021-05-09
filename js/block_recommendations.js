@@ -4,11 +4,11 @@ switch (getPageType()) {
             disableElement(element, "HOMEPAGE BLOCKED");
         });
         break;
-    case "subscriptions":
-        getSubTypeElements("subscriptions").forEach((element) => {
-            disableElement(element, "SUBSCRIPTIONS BLOCKED");
-        });
-        break;
+    // case "subscriptions":
+    //     getSubTypeElements("subscriptions").forEach((element) => {
+    //         disableElement(element, "SUBSCRIPTIONS BLOCKED");
+    //     });
+    //     break;
     case "explore":
         getSubTypeElements("trending").forEach((element) => {
             disableElement(element, "EXPLORE FEED BLOCKED");

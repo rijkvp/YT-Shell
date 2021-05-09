@@ -79,7 +79,7 @@ function getSubTypeElements(subType) {
 
 function showPage() {
     if (document.body != null) {
-        document.body.setAttribute("style", "display: block !important;");
+        document.body.setAttribute("style", "opacity: 1 !important;");
     }
 }
 
