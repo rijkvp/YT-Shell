@@ -1,4 +1,5 @@
 /* Thumbnails */
-ytd-thumbnail {
+ytd-thumbnail,
+ytd-playlist-thumbnail {
 	display: none !important;
 }
