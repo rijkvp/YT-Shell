@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "YT-Shell",
   "description": "Stay focused while using YouTube, block recommendations, upcummies & more.",
   "version": "0.3.5",
@@ -7,15 +7,12 @@
     "tabs",
     "storage",
     "contextMenus",
-    "scripting"
-  ],
-  "host_permissions": [
     "*://www.youtube.com/*"
   ],
   "background": {
     "service_worker": "main.js"
   },
-  "action": {
+  "browser_action": {
     "default_title": "YT-Shell - Settings",
     "default_popup": "settings_panel/popup.html"
   },

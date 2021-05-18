@@ -8,23 +8,26 @@ const defaultSettings = {
 }
 
 function insertJS(fileName, tabId) {
-    chrome.scripting.executeScript({
-        target: { tabId: tabId },
-        files: ["js/" + fileName]
+    // Version 3
+    // chrome.scripting.executeScript({
+    //     target: { tabId: tabId },
+    //     files: ["js/" + fileName]
+    // });
+    // Version 2
+    chrome.tabs.executeScript(tabId, {
+        file: "js/" + fileName
     });
 }
 
 function insertCSS(fileName, tabId) {
-    chrome.scripting.insertCSS({
-        target: { tabId: tabId },
-        files: ["css/" + fileName]
-    });
-}
-
-function removeCSS(fileName, tabId) {
-    chrome.scripting.removeCSS({
-        target: { tabId: tabId },
-        files: ["css/" + fileName]
+    // Version 3
+    // chrome.scripting.insertCSS({
+    //     target: { tabId: tabId },
+    //     files: ["css/" + fileName]
+    // });
+    // Version 2
+    chrome.tabs.insertCSS(tabId, {
+        file: "css/" + fileName
     });
 }
 
@@ -65,7 +68,7 @@ function injectScripts(tabId) {
 }
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (tab.url.includes("www.youtube.com")) {
-          injectScripts(tabId);
+        injectScripts(tabId);
     }
 });
 
@@ -74,7 +77,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
         currentTab = tab[0];
         if (currentTab != null && currentTab.url.includes("www.youtube.com")) {
             chrome.tabs.reload(tab.id, function () {
-                 injectScripts(currentTab.id);
+                injectScripts(currentTab.id);
             });
         }
     });
