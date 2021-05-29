@@ -1,3 +1,5 @@
+![Project Logo](img/icon-128.png) 
+
 # YT-Shell
 
 YT-Shell is a browser extension that helps you stay focused while browsing YouTube. The extension ensures that you are not distracted with the aim of spending your time on 'quality content'. It works by injecting CSS and JS that hide things from the site. There are settings for blocking stuff including blocking recommendations, hiding upcummies and thumbnails.
