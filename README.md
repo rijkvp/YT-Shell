@@ -1,6 +1,6 @@
 # YT-Shell
 
-YT-Shell is a browser extension which lets you stay focused while using YouTube. The extension ensures that you are not distracted by hiding things that distract you with the aim of spending your time on 'quality content'. There are settings for blocking recommendations, hiding upcummies & more.
+YT-Shell is a browser extension that helps you stay focused while browsing YouTube. The extension ensures that you are not distracted with the aim of spending your time on 'quality content'. It works by injecting CSS and JS that hide things from the site. There are settings for blocking stuff including blocking recommendations, hiding upcummies and thumbnails.
 
 ## Installation
 The extension is currently only available in the Microsoft Edge Add-ons store because I don't want to pay for the registration fees for the Chrome Web Store.
