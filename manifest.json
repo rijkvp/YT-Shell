@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "YT-Shell",
   "description": "Stay focused while using YouTube, block recommendations, upcummies & more.",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "permissions": [
     "tabs",
     "storage",

@@ -1,7 +1,14 @@
-/* Likes/dislikes */
+/* Like/dislike count */
 #top-level-buttons:nth-child(1) > ytd-toggle-button-renderer  #text,
 #top-level-buttons:nth-child(2) > ytd-toggle-button-renderer  #text,
-#sentiment
+#top-level-buttons-computed:nth-child(1) > ytd-toggle-button-renderer  #text,
+#top-level-buttons-computed:nth-child(2) > ytd-toggle-button-renderer  #text,
+/* Sentiment bar */
+#sentiment,
+/* Like/dislike count (on comments) */
+#vote-count-middle,
+/* Comment count */
+#count yt-formatted-string span:nth-child(1)
 {
 	display: none !important;
 }

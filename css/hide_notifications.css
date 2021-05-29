@@ -7,3 +7,8 @@ ytd-notification-topbar-button-renderer {
 yt-icon-button.ytd-subscription-notification-toggle-button-renderer {
     display: none !important;
 }
+
+/* Notification dot: the dot shown in the channels list when there's new content. */
+#newness-dot {
+    display: none !important;
+}
