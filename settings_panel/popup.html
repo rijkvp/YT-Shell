@@ -28,10 +28,10 @@
     #status {
         position: absolute;
         bottom: 8px;
-        left: 50%;
+        right: 0px;
         background-color: #FFF;
         background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        width: 250px;
+        width: 100%;
         height: 30px;
         margin-left: -125px;
         opacity: 0;
@@ -72,7 +72,9 @@
 </style>
 
 <body class="m-1 mt-3">
-    <h1 class="text-center mb-1 mt-1"><span class="fw-bold">YT-Shell</span>
+    <h1 class="text-center mb-1 mt-1"> 
+        <img src="../img/icon-32.png">
+        <span class="fw-bold">YT-Shell</span>
         <small class="fw-normal text-muted">- Settings</small>
     </h1>
 
@@ -85,14 +87,14 @@
         <div class="row my-2">
             <div class="col col-10">
                 <p class="fw-bold my-0">Block recommendations</p>
-                <p><small class="text-muted">Blocks recommendations on the homepage and next to videos.</small></p>
+                <p><small class="text-muted">Blocks all recommendations on the homepage and next to videos.</small></p>
             </div>
             <div class="col col-1"><input id="block_recommendations" type="checkbox" class="form-check-input"></div>
         </div>
         <div class="row my-2">
             <div class="col col-10">
                 <p class="fw-bold my-0">Block explore feeds</p>
-                <p><small class="text-muted">Prevent yourself from browsing additional feeds like trending.</small></p>
+                <p><small class="text-muted">Redirect when acessing explore feeds like trending.</small></p>
             </div>
             <div class="col col-1"><input id="block_explore_feeds" type="checkbox" class="form-check-input"></div>
         </div>
@@ -107,8 +109,7 @@
         <div class="row my-2">
             <div class="col col-10">
                 <p class="fw-bold my-0">Hide upcummies</p>
-                <p><small class="text-muted">Hides all upcummies form the website like/dislike and subscriber
-                        count.</small></p>
+                <p><small class="text-muted">Hides all upcummies form the website: (dis)like and subscriber counts.</small></p>
             </div>
             <div class="col col-1"><input id="hide_upcummies" type="checkbox" class="form-check-input"></div>
         </div>
@@ -123,7 +124,7 @@
         <div class="row my-2">
             <div class="col col-10">
                 <p class="fw-bold my-0">Hide avatars</p>
-                <p><small class="text-muted">Hides avatars from channels and users.</small></p>
+                <p><small class="text-muted">Hides avatars from channels and users everywhere.</small></p>
             </div>
             <div class="col col-1"><input id="hide_avatars" type="checkbox" class="form-check-input"></div>
         </div>
@@ -135,6 +136,8 @@
             <a href="https://github.com/rijkvp" class="link-secondary" target="_blank">@rijkvp</a> &middot;
             <a href="https://github.com/rijkvp/yt-shell" class="link-secondary" target="_blank">source</a> &middot;
             <a href="https://github.com/rijkvp/yt-shell/issues/new" class="link-secondary" target="_blank">submit issue</a>
+            &middot; 
+            v4.0
         </small>
     </footer>
     <!-- Settings JS -->
