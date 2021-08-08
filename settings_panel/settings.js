@@ -68,13 +68,13 @@ function saveSettings() {
             }
         });
 
-        let changedKeys = getChangedKeys(previousSettings, settings);
-        let reloadRequired = false;
-        changedKeys.forEach((key) => {
-            if (reloadRequiredSettings.includes(key)) {
-                reloadRequired = true;
-            }
-        });
+        // let changedKeys = getChangedKeys(previousSettings, settings);
+        let reloadRequired = true; // TEMPFIX: Not always working
+        // changedKeys.forEach((key) => {
+        //     if (reloadRequiredSettings.includes(key)) {
+        //         reloadRequired = true;
+        //     }
+        // });
 
         chrome.storage.sync.set(settings, onSettingsChanged(reloadRequired));
     });

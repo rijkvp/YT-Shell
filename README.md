@@ -32,9 +32,7 @@ One of the simplest steps to avoid getting distracted is to disable notification
 ### Hiding upcummies
 
 Upcummies, on YouTube subsciber and (dis)like counts, are the things that make social media so addicting. 
-People are constantly looking how much subscribers or likes they got like you can represend everything by a number thats actually meaningless.
-
-This option will completely hide the upcummies on YouTube. Spend time on the video insead of how good it is.
+People are constantly looking how much subscribers or likes they got like you can represend everything by a number thats actually meaningless. This option will completely hide the upcummies on YouTube. 
 
 ### Hiding thumbnails & avatars
 
