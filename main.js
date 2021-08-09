@@ -42,7 +42,7 @@ function removeCSS(fileName, tabId) {
 
 function injectScripts(tabId, isReloading) {
     if (!isReloading) {
-        // Quick fix: manually remove all CSS if not realoading
+        // Quick fix: manually remove all CSS if not reloading
         removeCSS("hide_explore_buttons.css");
         removeCSS("hide_upcummies.css");
         removeCSS("hide_notifications.css");

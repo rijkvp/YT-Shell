@@ -78,9 +78,14 @@ function getSubTypeElements(subType) {
 }
 
 function showPage() {
-    if (document.body != null) {
-        document.body.setAttribute("style", "opacity: 1 !important;");
-    }
+    window.onload = async function () {
+        if (document.body != null) {
+            // Wait 200 millis to make sure the page is loaded..
+            await new Promise(r => setTimeout(r, 200));
+            // Show the page
+            document.body.setAttribute("style", "opacity: 1 !important;");
+        }
+    };
 }
 
 showPage();
