@@ -1,10 +1,10 @@
 const defaultSettings = {
     block_recommendations: true,
-    block_explore_feeds: true,
+    block_explore_feeds: false,
     hide_upcummies: true,
     hide_notifications: true,
-    hide_thumbnails: true,
-    hide_avatars: true,
+    hide_thumbnails: false,
+    hide_avatars: false,
 }
 
 const reloadRequiredSettings = [
