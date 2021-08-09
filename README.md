@@ -1,19 +1,28 @@
 #  ![Project Logo](img/icon-64.png) YT-Shell
 
-YT-Shell is a browser extension that helps you stay focused while browsing YouTube. The extension ensures that you are not distracted with the aim of spending your time on 'quality content'. It works by injecting CSS and JS that hide things from the site. There are settings for blocking stuff including blocking recommendations, hiding upcummies and thumbnails.
+YT-Shell is a browser extension that helps you stay focused while browsing YouTube. The extension ensures that you are not distracted by recommendations and other stuff with the goal of spending your time on 'quality content'. The extension works by injecting CSS & JS that hide things from the website. There are various settings for blocking stuff including blocking recommendations, hiding upcummies and thumbnails: see [features](#features).
 
 ## Installation
-The extension is currently only available in the Microsoft Edge Add-ons store because I don't want to pay for the registration fees for the Chrome Web Store.
+
+The extension is currently only available in the Microsoft Edge Add-ons store because I don't want to pay for the registration fees for the Chrome Web Store. If you want to install the extension for other chromium-based browsers like Chrome or Brave follow the [manual installation](#manual-installation) instructions below.
 
 ### Microsoft Edge
+
 <a href="https://microsoftedge.microsoft.com/addons/detail/ytshell/dicfaohifjibflnmnbokaeoakkdlkaij"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get YT-Shell for Microsoft Edge"></a>
 
 [__Get from Microsoft Edge Add-ons store__](https://microsoftedge.microsoft.com/addons/detail/ytshell/dicfaohifjibflnmnbokaeoakkdlkaij)
 
 ### Manual installation
-1. Download and unzip the [latest release](https://github.com/rijkvp/YT-Shell/releases) from GitHub or clone the repository. 
-2. Make sure developer mode is enabled in your browser. On most chromium browsers there's a switch on the extensions page where you can enable it.
-3. Press 'load unpacked' and select the extension folder to load and enable it.
+
+1. Download and unpack the [latest release](https://github.com/rijkvp/YT-Shell/releases) archive from GitHub or clone the repository.
+
+2. Go to the extensions page of your chromium browser. On Chrome and Brave the extension page can be found in the menu on upper right corner.
+
+3. To install a downloaded extension, developer mode must be enabled. Find the 'Developper mode' toggle and enable it.
+
+4. Press 'load unpacked' and select the extension folder to load and enable it.
+
+5. The extension is now installed! Go to [YouTube](https://www.youtube.com) to test it out and open the settings panel to tweak the settings.
 
 ## Features
 
